@@ -1,6 +1,6 @@
 class MyFactoryBot
   def self.define(&block)
-    block.call
+    instance_exec(&block)
   end
 
   def self.create(model_sym); end
