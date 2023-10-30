@@ -20,12 +20,8 @@ class MyFactory
     @user = User.new
   end
 
-  def first_name(&block)
-    @user.send(:first_name=, block.call)
-  end
-
-  def last_name(&block)
-    @user.send(:last_name=, block.call)
+  def method_missing(attr, *_args, &block)
+    @user.send("#{attr}=", block.call)
   end
 end
 
