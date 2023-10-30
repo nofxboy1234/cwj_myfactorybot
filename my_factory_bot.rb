@@ -1,3 +1,6 @@
+class MyFactoryBot
+end
+
 MyFactoryBot.define do
   factory :user do
     first_name { 'John' }
