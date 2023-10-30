@@ -21,11 +21,11 @@ class MyFactory
   end
 
   def first_name(&block)
-    @user.first_name = block.call
+    @user.send('first_name=', block.call)
   end
 
   def last_name(&block)
-    @user.last_name = block.call
+    @user.send('last_name=', block.call)
   end
 end
 
@@ -33,7 +33,7 @@ MyFactoryBot.define do
   factory :user do
     first_name { 'John' }
     last_name { 'Smith' }
-    email { 'john.smith@example.com' }
+    # email { 'john.smith@example.com' }
   end
 end
 
