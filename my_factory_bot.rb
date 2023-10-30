@@ -9,11 +9,17 @@ class MyFactoryBot
   end
 
   def self.create(model_sym)
-    @factory
+    @factory.user
   end
 end
 
 class MyFactory
+  attr_reader :user
+
+  def initialize
+    @user = User.new
+  end
+
   def first_name; end
 
   def last_name; end
