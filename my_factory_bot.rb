@@ -3,7 +3,9 @@ class MyFactoryBot
     instance_exec(&block)
   end
 
-  def self.factory(model_sym); end
+  def self.factory(model_sym, &block)
+    instance_exec(&block)
+  end
 
   def self.create(model_sym); end
 end
