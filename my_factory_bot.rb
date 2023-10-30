@@ -21,11 +21,11 @@ class MyFactory
   end
 
   def first_name(&block)
-    @user.send('first_name=', block.call)
+    @user.send(:first_name=, block.call)
   end
 
   def last_name(&block)
-    @user.send('last_name=', block.call)
+    @user.send(:last_name=, block.call)
   end
 end
 
