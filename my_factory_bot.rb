@@ -3,25 +3,26 @@ class MyFactoryBot
     instance_exec(&block)
   end
 
-  def self.factory(_model_sym, &block)
-    @factory = MyFactory.new
-    @factory.instance_exec(&block)
+  def self.factory(model_sym, &block)
+    @factories ||= {}
+    @factories[model_sym] = MyFactory.new(model_sym)
+    @factories[model_sym].instance_exec(&block)
   end
 
-  def self.create(_model_sym)
-    @factory.user
+  def self.create(model_sym)
+    @factories[model_sym].record
   end
 end
 
 class MyFactory
-  attr_reader :user
+  attr_reader :record
 
-  def initialize
-    @user = User.new
+  def initialize(model_sym)
+    @record = model_sym.to_s.classify.constantize.new
   end
 
   def method_missing(attr, *_args, &block)
-    @user.send("#{attr}=", block.call)
+    @record.send("#{attr}=", block.call)
   end
 end
 
@@ -44,3 +45,8 @@ user = MyFactoryBot.create(:user)
 puts user.class.name
 puts "First name: #{user.first_name}"
 puts "Last name: #{user.last_name}"
+
+website = MyFactoryBot.create(:website)
+puts website.calss.name
+puts "Name: #{website.name}"
+puts "URL: #{website.url}"
