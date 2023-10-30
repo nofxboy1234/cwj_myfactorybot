@@ -8,7 +8,7 @@ class MyFactoryBot
     @factory.instance_exec(&block)
   end
 
-  def self.create(model_sym)
+  def self.create(_model_sym)
     @factory.user
   end
 end
@@ -20,9 +20,13 @@ class MyFactory
     @user = User.new
   end
 
-  def first_name; end
+  def first_name(&block)
+    @user.first_name = block.call
+  end
 
-  def last_name; end
+  def last_name(&block)
+    @user.last_name = block.call
+  end
 end
 
 MyFactoryBot.define do
