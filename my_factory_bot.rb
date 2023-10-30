@@ -1,5 +1,7 @@
 class MyFactoryBot
-  def self.define; end
+  def self.define(&block)
+    block.call
+  end
 
   def self.create(model_sym); end
 end
