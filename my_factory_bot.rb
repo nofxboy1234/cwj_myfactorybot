@@ -46,7 +46,9 @@ puts user.class.name
 puts "First name: #{user.first_name}"
 puts "Last name: #{user.last_name}"
 
+puts "\n"
+
 website = MyFactoryBot.create(:website)
-puts website.calss.name
+puts website.class.name
 puts "Name: #{website.name}"
 puts "URL: #{website.url}"
