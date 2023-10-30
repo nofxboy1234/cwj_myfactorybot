@@ -12,6 +12,9 @@ class MyFactoryBot
 end
 
 class MyFactory
+  def first_name; end
+
+  def last_name; end
 end
 
 MyFactoryBot.define do
