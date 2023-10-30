@@ -27,5 +27,6 @@ MyFactoryBot.define do
 end
 
 user = MyFactoryBot.create(:user)
+puts user.class.name
 puts "First name: #{user.first_name}"
 puts "Last name: #{user.last_name}"
