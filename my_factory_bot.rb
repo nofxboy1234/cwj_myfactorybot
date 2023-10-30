@@ -3,11 +3,15 @@ class MyFactoryBot
     instance_exec(&block)
   end
 
-  def self.factory(model_sym, &block)
-    instance_exec(&block)
+  def self.factory(_model_sym, &block)
+    factory = MyFactory.new
+    factory.instance_exec(&block)
   end
 
   def self.create(model_sym); end
+end
+
+class MyFactory
 end
 
 MyFactoryBot.define do
