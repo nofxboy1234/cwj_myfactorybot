@@ -1,4 +1,5 @@
 class MyFactoryBot
+  def self.define; end
 end
 
 MyFactoryBot.define do
