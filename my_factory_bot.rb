@@ -1,5 +1,7 @@
 class MyFactoryBot
   def self.define; end
+
+  def self.create(model_sym); end
 end
 
 MyFactoryBot.define do
