@@ -33,6 +33,13 @@ MyFactoryBot.define do
   end
 end
 
+MyFactoryBot.define do
+  factory :website do
+    name { 'Google' }
+    url { 'www.google.com' }
+  end
+end
+
 user = MyFactoryBot.create(:user)
 puts user.class.name
 puts "First name: #{user.first_name}"
